@@ -1,0 +1,200 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text for readability */
+}
+
+/* Navigation Bar */
+nav {
+    background: #1e1e1e; /* Darker shade for nav */
+    color: #00e676; /* Green accent */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #00e676;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #0288d1;
+}
+
+/* Hero Section */
+header {
+    background: url('../images/hero-dark.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.cta-button {
+    background: #00e676;
+    color: #121212;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #0288d1;
+}
+
+/* Features Section */
+.features {
+    text-align: center;
+    padding: 60px 20px;
+    background: #181818;
+}
+
+.features h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 255, 128, 0.1);
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+}
+
+.feature img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    color: #00e676;
+}
+
+/* Real-Time Waste Analytics */
+.analytics {
+    text-align: center;
+    padding: 50px 20px;
+    background: #1b1b1b;
+}
+
+.analytics h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.analytics-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 255, 128, 0.1);
+}
+
+.stat h3 {
+    font-size: 26px;
+    color: #00e676;
+}
+
+/* Call to Action */
+.cta {
+    text-align: center;
+    padding: 50px 20px;
+    background: #0288d1;
+    color: white;
+}
+
+.cta h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.cta p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #000;
+    color: #888;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARTBIN - Smart Waste Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h1>♻ SMARTBIN</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="waste-tracking.html">Waste Tracking</a></li>
+            <li><a href="#">Solutions</a></li>
+            <li><a href="#">Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="hero-content">
+            <h2>Innovative Waste Management for a Sustainable Future</h2>
+            <p>Empowering communities with AI-driven waste tracking, smart recycling, and bioenergy solutions.</p>
+            <a href="waste-tracking.html" class="cta-button">Monitor Waste Flow</a>
+        </div>
+    </header>
+
+    <!-- Waste Management Features -->
+    <section class="features">
+        <h2>How SMARTBIN is Transforming Waste Management</h2>
+        <div class="feature-container">
+            <div class="feature">
+                <img src="images/smart-bin.png" alt="Smart Bins">
+                <h3>IoT Smart Bins</h3>
+                <p>Smart sensors detect waste levels and optimize collection.</p>
+            </div>
+            <div class="feature">
+                <img src="images/recycling.png" alt="Recycling">
+                <h3>AI Waste Sorting</h3>
+                <p>AI-powered systems classify and recycle waste efficiently.</p>
+            </div>
+            <div class="feature">
+                <img src="images/biogas.png" alt="Bioenergy">
+                <h3>Bioenergy Generation</h3>
+                <p>Converting waste into renewable energy through torrefaction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-Time Waste Analytics -->
+    <section class="analytics">
+        <h2>Real-Time Waste Data</h2>
+        <div id="waste-data">
+            <p>Loading waste data...</p>
+        </div>
+    </section>
+    
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <h2>Submit Waste Data</h2>
+        <form id="waste-form">
+            <label for="wasteType">Waste Type:</label>
+            <input type="text" id="wasteType" required>
+    
+            <label for="quantity">Quantity (kg):</label>
+            <input type="number" id="quantity" required>
+    
+            <label for="location">Location:</label>
+            <input type="text" id="location" required>
+    
+            <button type="submit">Submit</button>
+        </form>
+        <p id="message"></p>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 SMARTBIN. Sustainable Waste Management.</p>
+    </footer>
+
+</body>
+</html>
