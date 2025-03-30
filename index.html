@@ -3,84 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMARTBIN - Smart Waste Management</title>
+    <title>Waste Management</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <nav>
-        <h1>♻ SMARTBIN</h1>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="waste-tracking.html">Waste Tracking</a></li>
-            <li><a href="#">Solutions</a></li>
-            <li><a href="#">Community</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
     <header>
-        <div class="hero-content">
-            <h2>Innovative Waste Management for a Sustainable Future</h2>
-            <p>Empowering communities with AI-driven waste tracking, smart recycling, and bioenergy solutions.</p>
-            <a href="waste-tracking.html" class="cta-button">Monitor Waste Flow</a>
-        </div>
+        <nav>
+            <div class="logo">SwachhGrah</div>
+            <ul>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="login.html">User Portal</a></li>
+                <li><a href="contact.html">Feedback</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <!-- Waste Management Features -->
-    <section class="features">
-        <h2>How SMARTBIN is Transforming Waste Management</h2>
-        <div class="feature-container">
-            <div class="feature">
-                <img src="images/smart-bin.png" alt="Smart Bins">
-                <h3>IoT Smart Bins</h3>
-                <p>Smart sensors detect waste levels and optimize collection.</p>
-            </div>
-            <div class="feature">
-                <img src="images/recycling.png" alt="Recycling">
-                <h3>AI Waste Sorting</h3>
-                <p>AI-powered systems classify and recycle waste efficiently.</p>
-            </div>
-            <div class="feature">
-                <img src="images/biogas.png" alt="Bioenergy">
-                <h3>Bioenergy Generation</h3>
-                <p>Converting waste into renewable energy through torrefaction.</p>
-            </div>
+    
+    <!-- Welcome Section with Background Slider -->
+    <section id="home">
+        <div class="slideshow-container">
+            <div class="mySlides active" style="background-image: url('https://saahaszerowaste.com/wp-content/themes/eco-friendly/images/images/SGM_0041-min.webp');"></div>
+            <div class="mySlides" style="background-image: url('https://saahaszerowaste.com/wp-content/themes/eco-friendly/images/images/SGM_0037-min.webp');"></div>
+            <div class="mySlides" style="background-image: url('https://saahaszerowaste.com/wp-content/themes/eco-friendly/images/images/SGM_0079-min.webp');"></div>
+        </div>
+        <div class="welcome-content">
+            <h1>Welcome to Smart Waste Management</h1>
+            <p>Track waste, optimize collection, and contribute to a sustainable future.</p>
         </div>
     </section>
 
-    <!-- Real-Time Waste Analytics -->
-    <section class="analytics">
-        <h2>Real-Time Waste Data</h2>
-        <div id="waste-data">
-            <p>Loading waste data...</p>
+    <div class="card-container">
+        <div class="card"><a href="smartbins.html">SmartBins</a></div>
+        <div class="card"><a href="conversion.html">Conversion</a></div>
+        <div class="card"><a href="optimization.html">Optimization</a></div>
+        <div class="card"><a href="guide.html">Guide</a></div>
+    </div>
+
+    <!-- Our Impact Section -->
+    <div class="section our_impact">
+        <div class="title">
+            <h3><b style="color:#22631b"> OUR IMPACT</h3></b>
+            <span><i class="icon-nature-2"></i></span>
         </div>
-    </section>
+        
+       
+                
+                    
+
+            <div class="row">
+                <div class="col-sm-6 cnt2">
+                    <div class="eco_items-services">
+                        <div class="eco_service_cols rtl_service">
+                            <span><i class="wastediverted"></i></span>          
+                            <div>
+                                <h4 class="counter" data-target="65000">0</h4>
+                                <p>KG - Waste diverted from landfills every day</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="eco_service_cols rtl_service">
+                        <span><i class="green-house-gas"></i></span>         
+                        <div>
+                            <h4 class="counter" data-target="37400">0</h4>
+                            <p>MT CO2e - Greenhouse gas reduction every year</p>
+                        </div>
+                    </div>
+                    <div class="eco_items-services">
+                        <div class="eco_service_cols rtl_service">
+                            <span><i class="employed-people"></i></span>          
+                            <div>
+                                <h4 class="counter" data-target="252">0</h4>
+                                <p>People employed from the lower socio-economic groups</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 img2">
+                    <a href="https://saahaszerowaste.com/wp-content/uploads/2021/10/Circular-Imapct-Report-2021.pdf">
+                        <img loading="lazy" src="https://saahaszerowaste.com/wp-content/uploads/2022/08/saahas-1.webp">
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- Call for Cleanup Section -->
+        <div class="section call-for-cleanup">
+            <div class="cleanup-container">
+                <div class="cleanup-text">
+                    <h2>Call for Cleanup</h2>
+                    <p>Request a cleanup truck at your location anytime. Help us keep our community clean and green!</p>
+                </div>
+                <form class="cleanup-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                    <input type="text" name="address" placeholder="Your Location" required>
+                    <button type="submit">Request Cleanup</button>
+                </form>
+            </div>
+        </div>
     
 
-    <!-- Call to Action -->
-    <section class="cta">
-        <h2>Submit Waste Data</h2>
-        <form id="waste-form">
-            <label for="wasteType">Waste Type:</label>
-            <input type="text" id="wasteType" required>
-    
-            <label for="quantity">Quantity (kg):</label>
-            <input type="number" id="quantity" required>
-    
-            <label for="location">Location:</label>
-            <input type="text" id="location" required>
-    
-            <button type="submit">Submit</button>
-        </form>
-        <p id="message"></p>
-    </section>
-    
-
-    <!-- Footer -->
     <footer>
-        <p>© 2025 SMARTBIN. Sustainable Waste Management.</p>
+        <p>&copy; 2025 SwachhGrah. All Rights Reserved.</p>
     </footer>
 
 </body>
