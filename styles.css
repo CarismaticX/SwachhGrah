@@ -1,200 +1,535 @@
+/* Import the Amazon-like Font */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
 /* General Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light text for readability */
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
 }
 
-/* Navigation Bar */
+/* ---------------- HEADER (Amazon-style SwachhGrah) ---------------- */
+header {
+    background: rgba(0, 0, 0, 0.85); /* Darker background for better visibility */
+    padding: 15px 0;
+    position: relative;
+    z-index: 10;
+}
+
 nav {
-    background: #1e1e1e; /* Darker shade for nav */
-    color: #00e676; /* Green accent */
-    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 30px;
 }
 
-nav h1 {
-    font-size: 24px;
+/* SwachhGrah Logo - Amazon Style */
+.logo {
+    font-size: 34px;
+    font-family: 'Archivo Black', sans-serif; /* Amazon-like font */
+    font-weight: bold;
+    color: #FF9900; /* Amazon’s orange */
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+/* Amazon-like Smile Underline */
+.logo::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #FF9900;
+    border-radius: 50px;
+    bottom: -6px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
 }
 
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: #00e676;
-    text-decoration: none;
-    font-size: 16px;
-    transition: 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
-    color: #0288d1;
-}
-
-/* Hero Section */
-header {
-    background: url('../images/hero-dark.jpg') no-repeat center center/cover;
-    color: white;
-    text-align: center;
-    padding: 120px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-content {
-    max-width: 600px;
-}
-
-.hero-content h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
-    animation: fadeInDown 1s ease-in-out;
-}
-
-.hero-content p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    animation: fadeInUp 1s ease-in-out;
-}
-
-.cta-button {
-    background: #00e676;
-    color: #121212;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: background 0.3s;
-}
-
-.cta-button:hover {
-    background: #0288d1;
-}
-
-/* Features Section */
-.features {
-    text-align: center;
-    padding: 60px 20px;
-    background: #181818;
-}
-
-.features h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
-}
-
-.feature-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.feature {
-    background: #222;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 2px 2px 10px rgba(0, 255, 128, 0.1);
-    transition: transform 0.3s;
-}
-
-.feature:hover {
+.logo:hover {
     transform: scale(1.05);
 }
 
-.feature img {
-    width: 80px;
-    margin-bottom: 10px;
+.logo:hover::after {
+    width: 110%;
 }
 
-.feature h3 {
-    color: #00e676;
-}
-
-/* Real-Time Waste Analytics */
-.analytics {
-    text-align: center;
-    padding: 50px 20px;
-    background: #1b1b1b;
-}
-
-.analytics h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.analytics-container {
+/* Navigation Links */
+nav ul {
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    list-style: none;
 }
 
-.stat {
-    background: #222;
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #FF9900;
+}
+
+/* ---------------- WELCOME SECTION WITH BACKGROUND SLIDER ---------------- */
+#home {
+    position: relative;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.mySlides {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.mySlides.active {
+    opacity: 1;
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
-    width: 250px;
-    text-align: center;
-    box-shadow: 2px 2px 10px rgba(0, 255, 128, 0.1);
 }
 
-.stat h3 {
-    font-size: 26px;
-    color: #00e676;
+/* ---------------- CARD SECTION ---------------- */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
 
-/* Call to Action */
-.cta {
-    text-align: center;
-    padding: 50px 20px;
-    background: #0288d1;
+.card {
+    background: #22631b;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card a {
     color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.cta h2 {
+/* ---------------- OUR IMPACT SECTION ---------------- */
+.our_impact {
+    background: #eaf7ea;
+    padding: 50px 20px;
+}
+
+.our_impact .title {
+    text-align: center;
     font-size: 28px;
+    color: #22631b;
+    margin-bottom: 30px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.impact-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.impact-card:hover {
+    transform: translateY(-10px);
+}
+
+.counter {
+    font-size: 28px;
+    color: #22631b;
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+}
+
+/* ---------------- RESPONSIVE DESIGN ---------------- */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Our Impact Section Styling */
+.our_impact {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.our_impact .title h3 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #22631b;
+}
+
+.our_impact .title h3 b {
+    color: #22631b;
+}
+
+.our_impact .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.our_impact .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.our_impact .col-sm-6 {
+    flex: 1;
+    padding: 20px;
+}
+
+.our_impact .img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.our_impact .img p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.our_impact .cnt h4 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.our_impact .cnt p {
+    font-size: 18px;
+    color: #666;
+    font-weight: 500;
+}
+
+.our_impact .cnt2 .eco_service_cols {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.our_impact .eco_service_cols span i {
+    font-size: 40px;
+    color: #22631b;
+    margin-right: 15px;
+}
+
+.our_impact .eco_service_cols h4 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.our_impact .eco_service_cols p {
+    font-size: 16px;
+    color: #666;
+}
+
+.our_impact .img2 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.our_impact .img2 p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}
+
+/* Our Impact Section Styling */
+.our_impact {
+    text-align: center;
+    padding: 60px 0;
+    background-color: #ffffff;
+}
+
+.our_impact .title {
+    margin-bottom: 30px;
+}
+
+.our_impact .title h3 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.our_impact .title h3 b {
+    color: #22631b;
+}
+
+/* Container Layout */
+.our_impact .container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Row Styling */
+.our_impact .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Left Column - Image */
+.our_impact .col-sm-6.img,
+.our_impact .col-sm-6.img2 {
+    flex: 1;
+    text-align: center;
+}
+
+.our_impact .col-sm-6.img img,
+.our_impact .col-sm-6.img2 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.our_impact .col-sm-6.img img:hover,
+.our_impact .col-sm-6.img2 img:hover {
+    transform: scale(1.05);
+}
+
+/* Image Captions */
+.our_impact .col-sm-6.img p,
+.our_impact .col-sm-6.img2 p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Right Column - Stats */
+.our_impact .col-sm-6.cnt,
+.our_impact .col-sm-6.cnt2 {
+    flex: 1;
+    text-align: left;
+}
+
+.our_impact .cnt div,
+.our_impact .cnt2 .eco_service_cols {
+    background: #f9f9f9;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-left: 5px solid #22631b;
+    border-radius: 5px;
+}
+
+.our_impact .cnt h4,
+.our_impact .cnt2 .eco_service_cols h4 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #22631b;
+    margin-bottom: 5px;
+}
+
+.our_impact .cnt p,
+.our_impact .cnt2 .eco_service_cols p {
+    font-size: 18px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Icon Styling */
+.our_impact .eco_service_cols {
+    display: flex;
+    align-items: center;
+}
+
+.our_impact .eco_service_cols span i {
+    font-size: 36px;
+    color: #22631b;
+    margin-right: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .our_impact .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .our_impact .col-sm-6.cnt,
+    .our_impact .col-sm-6.cnt2 {
+        text-align: center;
+    }
+
+    .our_impact .eco_service_cols {
+        justify-content: center;
+    }
+}
+
+/* Call for Cleanup Section */
+.call-for-cleanup {
+    background: #f8f9fa;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cleanup-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cleanup-text h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #22631b;
     margin-bottom: 10px;
 }
 
-.cta p {
+.cleanup-text p {
     font-size: 18px;
+    color: #666;
     margin-bottom: 20px;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #000;
-    color: #888;
+.cleanup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+.cleanup-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.cleanup-form button {
+    background: #22631b;
+    color: white;
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.cleanup-form button:hover {
+    background: #1a4f15;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cleanup-container {
+        width: 90%;
+    }
+
+    .cleanup-form input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .cleanup-form button {
+        font-size: 16px;
+    }
 }
