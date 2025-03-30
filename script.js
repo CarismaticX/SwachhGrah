@@ -1,51 +1,98 @@
-document.addEventListener("DOMContentLoaded", function() {
-    fetch("http://localhost:5000/api/waste")
+// Dark Mode Toggle
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+});
+
+// Preserve dark mode setting
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+}
+
+// Handle Waste Data Submission
+document.getElementById('waste-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const wasteType = document.getElementById('wasteType').value;
+    const quantity = document.getElementById('quantity').value;
+    const location = document.getElementById('location').value;
+
+    fetch('http://localhost:5000/api/waste/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ wasteType, quantity, location })
+    })
     .then(response => response.json())
     .then(data => {
-        let table = document.getElementById("wasteTable");
-        data.forEach(waste => {
-            let row = table.insertRow();
-            row.insertCell(0).innerText = waste.type;
-            row.insertCell(1).innerText = waste.weight;
-            row.insertCell(2).innerText = waste.location;
-            row.insertCell(3).innerText = waste.status;
-        });
+        document.getElementById('message').innerText = 'Waste data submitted!';
+        document.getElementById('waste-form').reset();
     })
-    .catch(error => console.error("Error fetching waste data:", error));
+    .catch(error => console.error('Error:', error));
 });
 
-const FORM_API_URL = "http://localhost:5000/api/waste/add";
+document.addEventListener("DOMContentLoaded", function () {
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".mySlides");
 
-// Handle form submission
-document.getElementById("waste-form").addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const wasteType = document.getElementById("wasteType").value;
-    const quantity = document.getElementById("quantity").value;
-    const location = document.getElementById("location").value;
-
-    const wasteData = {
-        wasteType,
-        quantity: Number(quantity),
-        location
-    };
-
-    try {
-        const response = await fetch(FORM_API_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(wasteData)
+    function showSlides() {
+        slides.forEach((slide, index) => {
+            slide.style.opacity = index === slideIndex ? "1" : "0";
         });
 
-        const result = await response.json();
-        document.getElementById("message").innerText = result.message;
-
-        // Refresh the waste data list after submission
-        fetchWasteData();
-
-    } catch (error) {
-        console.error("Error submitting waste data:", error);
-        document.getElementById("message").innerText = "Error submitting data.";
+        slideIndex = (slideIndex + 1) % slides.length;
+        setTimeout(showSlides, 3000);
     }
+
+    showSlides();
 });
+
+// Slideshow Animation
+let slideIndex = 0;
+const slides = document.querySelectorAll(".mySlides");
+
+function showSlides() {
+    slides.forEach((slide, index) => {
+        slide.classList.remove("active");
+        if (index === slideIndex) slide.classList.add("active");
+    });
+    slideIndex = (slideIndex + 1) % slides.length;
+}
+
+setInterval(showSlides, 3000);
+
+document.querySelector(".prev")?.addEventListener("click", () => {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlides();
+});
+
+document.querySelector(".next")?.addEventListener("click", () => {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlides();
+});
+
+// Counter Animation
+const counters = document.querySelectorAll(".counter");
+const speed = 100;
+
+counters.forEach(counter => {
+    const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 30);
+        } else {
+            counter.innerText = target;
+        }
+    };
+    updateCount();
+});
+
+
 

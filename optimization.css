@@ -1,0 +1,43 @@
+/* Dark Theme with Green Elements */
+body { 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+    background-color: #121212; /* Black background */
+    color: #4caf50; /* Neon green text */
+    margin: 20px;
+}
+
+/* Map Container */
+#map { 
+    height: 500px; 
+    width: 90%; 
+    max-width: 800px;
+    margin: 20px auto; 
+    border: 2px solid #4caf50; /* Green border */
+    border-radius: 10px;
+}
+
+/* Button Styling */
+button { 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    background-color: ; /* Neon green */
+    color: #121212; /* Black text */
+    border: none; 
+    border-radius: 5px; 
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover { 
+    background-color: #4caf50; /* Dark green hover */
+    color: white;
+}
+
+/* Leaflet Popup Dark Theme */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background-color: #121212 !important; /* Black popup */
+    color: #4caf50 !important; /* Green text */
+    border: 1px solid #4caf50;
+}

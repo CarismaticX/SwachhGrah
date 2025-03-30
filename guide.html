@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Disposal Guide</title>
+    <link rel="stylesheet" href="guide.css">
+  
+</head>
+<body>
+    <div class="container">
+        <h1>Waste Disposal Guide for Users</h1>
+        <select id="wasteType">
+            <option value="plastic">Plastic</option>
+            <option value="glass">Glass</option>
+            <option value="paper">Paper</option>
+            <option value="organic">Organic Waste</option>
+            <option value="electronic">Electronic Waste</option>
+            <option value="metal">Metal</option>
+        </select>
+        <button onclick="getDisposalSteps()">Get Disposal Steps</button>
+        <div class="steps" id="steps"></div>
+    </div>
+
+
+    <script src="guide.js"></script>
+</body>
+</html>
